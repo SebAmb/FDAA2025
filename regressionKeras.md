@@ -84,6 +84,15 @@ model = Sequential()
 model.add(Dense(1, input_shape=(4,),activation='sigmoid'))
 model.summary()
 ```
+ou encore en séparant la couche d'entrée
+```
+# define the keras model
+model = Sequential()
+model.add(Input(shape=(4,)))
+model.add(Dense(1, activation='sigmoid'))
+model.summary()
+
+```
 
 Attention, l'appel de la méthode __Sequential__  initialise le modèle à zéro. Par conséquent, si par la suite vous ajouter d'autres couches au réseau sans appeler cette méthode, elles viendront s'ajouter
 aux couches que le modèle comportait déjà.
