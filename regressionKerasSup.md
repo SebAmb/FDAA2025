@@ -144,7 +144,7 @@ choisirons de sauvegarder uniquement si la valeur de val_loss est plus faible qu
 ```
 # construction de la fonction callback qui sauvegarde les poids
 # seulement si le modèle est meilleur sur la base de val_loss
-checkpoint = keras.callbacks.ModelCheckpoint(filepath="./weights/weights-{epoch:03d}-{val_loss:.4f}.hdf5", monitor="val_loss", mode="min", save_best_only=True, verbose=1)
+checkpoint = keras.callbacks.ModelCheckpoint(filepath="./weights/weights-{epoch:03d}-{val_loss:.4f}.weights.hdf5", monitor="val_loss", mode="min", save_best_only=True, save_weights_only=True, verbose=1)
 callbacks = [checkpoint]
 
 # appel de la nouvelle fonction de fit()
@@ -152,6 +152,8 @@ history=model.fit(X, y, epochs=200, batch_size=10, shuffle=False, validation_spl
 ```
 
 Il est possible de changer la valeur qui est monitorée pour créer la condition de sauvegarde : ```fit(...,monitor=val_accuracy,mode="max",verbose=1)```
+
+Attention dans la version Keras du moment, pour n'enregistrer que les poids, il est requis de spécifier le paramètre ```save_weights_only=True``` et le nom du fichier de poids doit se terminer par ```weights.hdf5``` dans la définition de la callback.
 
 **Question : vérifier la bonne sauvegarde des poids dans le dossier que vous avez préciseé (ici ./weights/weights-032-0.4321.hdf5)**
 
