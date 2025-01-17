@@ -155,13 +155,14 @@ sans __dropout__**
 
 ## Analyse des résultats
 
-Nous allons étudier plus précisément les résultats donnés par le réseau appris sur la base de test. Dans un premier temps, nous allons afficher les 10 premières erreurs de prédiction pour chacune des classes CIFAR-10. Une telle fonction est disponible dans la librairie pml_utils que vous pouvez télécharger dans le dossier ```tools``` de ce dépot.
+Nous allons étudier plus précisément les résultats donnés par le réseau appris sur la base de test. Dans un premier temps, nous allons afficher les 10 premières erreurs de prédiction pour chacune des classes CIFAR-10. Une telle fonction est disponible dans la librairie pml_utils que vous pouvez télécharger du dossier ```tools``` de ce dépot dans le dossier dans lequel votre notebook actif est enregistré.
+
 Voici les lignes de code (ici pour la classe "truck") :
 
 ```
 import os
-if not os.path.isfile('pml_utils.py'):
-  !wget https://raw.githubusercontent.com/csc-training/intro-to-dl/master/day1/pml_utils.py
+os.chdir("nom du dossier dans lequel est sauvegardé le module à importer")
+import pml_utils
 
 from pml_utils import show_failures
 
