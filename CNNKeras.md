@@ -155,7 +155,7 @@ sans __dropout__**
 
 ## Analyse des résultats
 
-Nous allons étudier plus précisément les résultats donnés par le réseau appris sur la base de test. Dans un premier temps, nous allons afficher les 10 premières erreurs de prédiction pour chacune des classes CIFAR-10. Une telle fonction est disponible dans la librairie pml_utils que nous devons télécharger préalablement.
+Nous allons étudier plus précisément les résultats donnés par le réseau appris sur la base de test. Dans un premier temps, nous allons afficher les 10 premières erreurs de prédiction pour chacune des classes CIFAR-10. Une telle fonction est disponible dans la librairie pml_utils que vous pouvez télécharger dans le dossier ```tools``` de ce dépot.
 Voici les lignes de code (ici pour la classe "truck") :
 
 ```
