@@ -121,6 +121,27 @@ Il nous reste désormais à lancer l'entraînement avec les codes que vous conna
 **Question : lancer à nouveau en réduisant le learning_rate=0.01 et en augmentant le nomre d'epoch=100. Afficher les courbes d'apprentissage. Faite l'évaluation sur la base de test et
 afficher la matrice de confusion.**
 
+Comme vous pourrez le constater, les performances sur la base d'entraînement et la base de validation ne sont pas à la heuteur de ce qu'on pourrait attendre. Afin d'améliorer les résultats, une solution est de normaliser les bases d'entraînement. Pour cela, vous pouvez utiliser la fonction suivante :
+```
+def normalize(X_train,X_test):
+    # normalise les entrées pour obtenir une valeur moyenne de 0 et une variance unitaire
+    # en fonction de la statistique des données
+    mean = np.mean(X_train,axis=(0,1,2,3))
+    std = np.std(X_train, axis=(0, 1, 2, 3))
+    print(mean)
+    print(std)
+    X_train = (X_train-mean)/(std+1e-7)
+    X_test = (X_test-mean)/(std+1e-7)
+    return X_train, X_test
+```
+
+Appliquer la fonction normalize pour normaliser vos données d'apprentissage et de test :
+```
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train, x_test = normalize(x_train, x_test)
+```
+
 ## Pour aller plus loin
 
 **Question : jouer avec un autre réseau pré-entraîné disponible.**
