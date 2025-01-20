@@ -1,11 +1,13 @@
 ## **Définition d'un réseau avec Keras : Modèle Séquentiel vs Modèle Fonctionnel**
 
-Keras propose deux manières principales de définir un réseau de neurones : **le modèle séquentiel** et **le modèle fonctionnel (non séquentiel)**. Voici une explication et une comparaison des deux.
+Keras propose deux manières principales de définir un réseau de neurones : **le modèle séquentiel** et **le modèle fonctionnel (non séquentiel)**.
+Je vous propose une explication et une comparaison des deux.
+Au cours des TD vous aurez à utiliser les deux descriptions.
 
 ---
 
 ### **1. Modèle Séquentiel**
-Le modèle séquentiel (`Sequential`) est une méthode simple pour construire un réseau lorsque les couches s'empilent strictement les unes après les autres.
+Le modèle séquentiel est une méthode simple pour construire un réseau lorsque les couches s'empilent strictement les unes après les autres.
 
 #### **Caractéristiques :**
 - Les couches sont ajoutées dans un ordre **linéaire**.
@@ -25,7 +27,7 @@ model = Sequential([
 ])
 ```
 
-Dans cet exemple, chaque couche est ajoutée de manière séquentielle à la précédente.
+Dans cet exemple, chaque couche est ajoutée de manière séquentielle à la précédente. La première couche applatit les données d'entrée, la deuxième couche est composée de 128 neurones totalement connectés au 764 neurones de la couche applatie et la couche de sortie est composée de 10 neurones (un par classe) totalement connectés à aux 128 de la couche précédente.
 
 ---
 
@@ -36,7 +38,7 @@ Le modèle fonctionnel permet de créer des architectures complexes, comme :
 - Des architectures **non linéaires**.
 
 #### **Caractéristiques :**
-- Les couches sont connectées explicitement via des objets `Tensor`.
+- Les couches sont connectées explicitement via des objets `Tensor` i.e les sorties d'autres couches de l'architecture.
 - Offre une grande flexibilité pour construire des réseaux avancés.
 - Idéal pour des architectures complexes.
 
@@ -47,7 +49,7 @@ from tensorflow.keras.layers import Input, Dense, Flatten, concatenate
 
 # Définir les entrées
 input1 = Input(shape=(28, 28))  # Première entrée
-input2 = Input(shape=(10,))    # Deuxième entrée (par exemple, des métadonnées)
+input2 = Input(shape=(10,))    # Deuxième entrée 
 
 # Appliquer des transformations aux entrées
 x1 = Flatten()(input1)
@@ -66,6 +68,13 @@ model = Model(inputs=[input1, input2], outputs=output)
 ```
 
 Dans cet exemple, on a deux entrées différentes, des branches parallèles et une concaténation pour fusionner les sorties.
+
+## Modèle Séquentiel
+![Modèle Séquentiel](./images/sequential_model.png "Architecture du modèle séquentiel")
+
+## Modèle Fonctionnel
+![Modèle Fonctionnel](./images/functional_model.png "Architecture du modèle fonctionnel")
+
 
 ---
 
