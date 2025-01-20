@@ -70,7 +70,7 @@ model = Model(inputs=[input1, input2], outputs=output)
 Dans cet exemple, on a deux entrées différentes, des branches parallèles et une concaténation pour fusionner les sorties.
 
 ## Modèle Séquentiel
-<img src="sequential_model.png" alt="Modèle Séquentiel" width="400"/>
+<img src="./images/sequential_model.png" alt="Modèle Séquentiel" width="500"/>
 
 ## Modèle Fonctionnel
 ![Modèle Fonctionnel](./images/functional_model.png "Architecture du modèle fonctionnel")
