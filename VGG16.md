@@ -75,7 +75,7 @@ from keras import backend as K
 from keras.applications.vgg16 import VGG16
 
 # Modèle VGG16
-base_model = VGG16(weights='imagenet', include_top=False)
+base_model = VGG16(weights='imagenet', include_top=False,input_shape=(32,32,3))
 ```
 
 Un fois la structure base récupérée, il faut "freezer" c'est-à-dire figer les couches du réseau que nous ne souhaitons pas modifier pendant la phase d'entraînement :
